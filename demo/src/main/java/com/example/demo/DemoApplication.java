@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.utils.SenhaUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +20,14 @@ public class DemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
+			String senhaEncoded = SenhaUtils.geraBCrypt("123456");
+			System.out.println("Senha encoded: " + senhaEncoded);
+
+			senhaEncoded = SenhaUtils.geraBCrypt("123456");
+			System.out.println("Senha encoded novamente: " + senhaEncoded);
+
+			System.out.println("Senha válida: " + SenhaUtils.senhaValida("123456", senhaEncoded));
+
 			System.out.println("### Quantidade de elementos por página - " + this.qtdPorPagina);
 		};
 	}
