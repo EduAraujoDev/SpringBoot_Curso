@@ -8,6 +8,6 @@ CREATE TABLE `empresa` (
 
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`id`);
-  
+
 ALTER TABLE `empresa`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
