@@ -1,6 +1,7 @@
 package com.example.demo_2.controllers;
 
 import com.example.demo_2.dtos.EmpresaDto;
+import com.example.demo_2.response.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,8 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmpresaController {
 
     @PostMapping
-    public ResponseEntity<EmpresaDto> cadastrar(@RequestBody EmpresaDto empresaDto) {
+    public ResponseEntity<Response<EmpresaDto>> cadastrar(@RequestBody EmpresaDto empresaDto) {
+        Response<EmpresaDto> response = new Response<>();
+
         empresaDto.setId(1L);
-        return ResponseEntity.ok(empresaDto);
+        response.setData(empresaDto);
+
+        return ResponseEntity.ok(response);
     }
 }
